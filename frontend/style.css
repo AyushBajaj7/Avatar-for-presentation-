@@ -1,0 +1,193 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4f46e5 100%);
+    color: #e0e7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+    overflow-x: hidden;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 56rem; /* 896px */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 1.5rem; /* 24px */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 2.5rem;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    transition: padding 0.3s ease;
+}
+
+/* Voice Select Dropdown Styling */
+select#voice-select option {
+    background: #1e1b4b;
+    color: white;
+}
+
+.header-glow {
+    text-shadow: 0 0 15px rgba(165, 180, 252, 0.4), 0 0 25px rgba(165, 180, 252, 0.2);
+}
+
+.upload-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+}
+.upload-box:hover {
+    background: rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+.upload-box:hover .fa-file-powerpoint,
+.upload-box:hover .fa-user-astronaut {
+    transform: scale(1.1);
+    color: #a5b4fc; /* indigo-300 */
+}
+
+.file-input-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.5rem;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.file-input-label:hover {
+    border-color: #818cf8; /* indigo-400 */
+    background-color: rgba(79, 70, 229, 0.1);
+}
+
+#avatar-image.speaking {
+    animation: speak-pulse 1s infinite ease-in-out;
+}
+
+@keyframes speak-pulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(129, 140, 248, 0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px 10px rgba(129, 140, 248, 0);
+    }
+}
+
+.generate-button {
+    width: 100%;
+    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    color: white;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+.generate-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+.generate-button:active {
+    transform: translateY(0) scale(1);
+}
+.generate-button .button-icon {
+    margin-left: 0.75rem;
+    transition: transform 0.3s ease;
+}
+.generate-button:hover .button-icon {
+    transform: rotate(15deg) scale(1.2);
+}
+
+.control-button {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 9999px;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+.control-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+}
+.control-button:disabled {
+    background-color: rgba(71, 85, 105, 0.5);
+    cursor: not-allowed;
+    transform: scale(1);
+    box-shadow: none;
+}
+
+.script-panel {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Scrollbar */
+.script-panel::-webkit-scrollbar {
+  width: 8px;
+}
+.script-panel::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+.script-panel::-webkit-scrollbar-thumb {
+  background: #4f46e5;
+  border-radius: 10px;
+}
+.script-panel::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+.back-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0e7ff;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.back-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 640px) {
+    body {
+        padding: 1rem;
+    }
+
+    .main-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .file-input-label {
+        padding: 2rem 1rem;
+    }
+    
+    .control-button {
+        width: 3.5rem;
+        height: 3.5rem;
+        font-size: 1.25rem;
+    }
+}
+

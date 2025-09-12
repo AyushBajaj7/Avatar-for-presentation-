@@ -1,0 +1,38 @@
+# Core
+numpy>=1.24.0
+scipy>=1.11.0
+pandas>=2.0.0
+
+# Deep Learning (PyTorch with CUDA 12.1 for Python 3.12)
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+
+# Wav2Lip dependencies
+opencv-python>=4.8.0
+dlib>=19.24.0
+numba>=0.58.0
+scikit-image>=0.21.0
+scikit-learn>=1.3.0
+matplotlib>=3.7.0
+tqdm>=4.65.0
+
+# TTS (Coqui TTS - compatible with Python 3.12)
+TTS>=0.22.0
+
+# Movie editing
+moviepy==1.0.3
+imageio
+
+# PowerPoint processing
+python-pptx==0.6.21
+
+# Image processing
+Pillow==10.0.0
+
+# Configuration and logging
+python-dotenv==1.0.0
+
+# Audio processing
+librosa==0.10.1
+soundfile==0.12.1

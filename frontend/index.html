@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Presenter Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white header-glow">AI Presenter Studio</h1>
+            <p class="text-indigo-200 mt-3 sm:text-lg">Bring your presentations to life with an AI-powered avatar.</p>
+        </div>
+
+        <!-- Input Section -->
+        <div id="input-section" class="transition-opacity duration-500">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- PPTX Upload -->
+                <div class="upload-box">
+                    <label for="pptx-file" class="file-input-label">
+                        <div class="text-center">
+                            <i class="fas fa-file-powerpoint text-5xl text-indigo-300 transition-transform duration-300"></i>
+                            <p class="mt-4 font-semibold text-lg text-white">Upload Presentation</p>
+                            <p class="mt-1 text-sm text-indigo-200" id="pptx-filename">Drop a .pptx file here or click</p>
+                        </div>
+                    </label>
+                    <input type="file" id="pptx-file" class="hidden" accept=".pptx">
+                </div>
+                
+                <!-- JPG Upload -->
+                <div class="upload-box">
+                    <label for="jpg-file" class="file-input-label">
+                         <div class="text-center">
+                            <i class="fas fa-user-astronaut text-5xl text-indigo-300 transition-transform duration-300"></i>
+                            <p class="mt-4 font-semibold text-lg text-white">Upload Avatar</p>
+                            <p class="mt-1 text-sm text-indigo-200" id="jpg-filename">Drop an image file here or click</p>
+                        </div>
+                    </label>
+                    <input type="file" id="jpg-file" class="hidden" accept="image/jpeg, image/png">
+                </div>
+            </div>
+
+            <!-- Voice Selection -->
+            <div class="mt-8">
+                <label for="voice-select" class="font-semibold text-indigo-100 mb-2 block text-lg">3. Select a Voice</label>
+                <div class="relative">
+                    <select id="voice-select" class="w-full bg-white/10 border border-indigo-400/50 rounded-lg py-3 px-4 appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-400 text-white placeholder-indigo-200">
+                        <option>Loading voices...</option>
+                    </select>
+                    <i class="fas fa-chevron-down text-indigo-300 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <div class="mt-10">
+                <button id="generate-btn" class="generate-button">
+                    <span class="button-text">Generate Presentation</span>
+                    <i class="fas fa-magic-sparkles button-icon"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Output Section -->
+        <div id="output-section" class="hidden mt-8 transition-opacity duration-500">
+             <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-white header-glow">Your AI Presentation</h2>
+                <p class="text-indigo-200 mt-2" id="status-text">Generating... please wait.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Avatar Panel -->
+                <div class="lg:col-span-1 flex flex-col items-center justify-center space-y-6">
+                    <img id="avatar-image" src="https://placehold.co/256x256/1e1b4b/93c5fd?text=Avatar" alt="Avatar" class="w-52 h-52 sm:w-60 sm:h-60 rounded-full object-cover border-4 border-indigo-400 shadow-lg transition-transform duration-300">
+                    <div class="flex space-x-4">
+                         <button id="play-pause-btn" class="control-button bg-green-500/80 hover:bg-green-500">
+                            <i id="play-icon" class="fas fa-play"></i>
+                            <i id="pause-icon" class="fas fa-pause hidden"></i>
+                        </button>
+                         <button id="stop-btn" class="control-button bg-red-500/80 hover:bg-red-500">
+                             <i class="fas fa-stop"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Script Panel -->
+                <div class="lg:col-span-2 bg-black/30 rounded-lg p-5 h-64 lg:h-80 overflow-y-auto script-panel">
+                    <h3 class="font-bold text-lg text-indigo-100 mb-3">Presentation Script</h3>
+                    <div id="script-content" class="text-indigo-200 space-y-3">
+                         <p class="text-gray-400">Presentation script will appear here...</p>
+                    </div>
+                </div>
+            </div>
+             <div class="mt-8 text-center">
+                <button id="back-btn" class="back-button">
+                    <i class="fas fa-arrow-left mr-2"></i> Start Over
+                </button>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

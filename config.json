@@ -1,0 +1,38 @@
+{
+  "directories": {
+    "ppt_input": "ppt_input",
+    "face_images": "face_images",
+    "audio": "audio",
+    "video": "video",
+    "output": "output",
+    "slide_images": "slide_images",
+    "temp": "temp"
+  },
+  "files": {
+    "face_image": "face.png",
+    "final_video": "final_presentation.mp4"
+  },
+  "wav2lip": {
+    "path": "Wav2Lip",
+    "checkpoint": "checkpoints/wav2lip_gan.pth"
+  },
+  "tts": {
+    "model": "tts_models/en/ljspeech/tacotron2-DDC",
+    "voice": "default",
+    "speed": 1.0,
+    "pitch": 1.0
+  },
+  "video": {
+    "fps": 25,
+    "resolution": [1920, 1080],
+    "avatar_size_ratio": 0.25,
+    "avatar_position": "bottom_right"
+  },
+  "processing": {
+    "extract_slide_content": true,
+    "extract_speaker_notes": true,
+    "combine_text_sources": true,
+    "batch_size": 1,
+    "skip_existing": true
+  }
+}
