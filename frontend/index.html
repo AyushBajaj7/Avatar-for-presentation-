@@ -28,10 +28,10 @@
                         <div class="text-center">
                             <i class="fas fa-file-powerpoint text-5xl text-indigo-300 transition-transform duration-300"></i>
                             <p class="mt-4 font-semibold text-lg text-white">Upload Presentation</p>
-                            <p class="mt-1 text-sm text-indigo-200" id="pptx-filename">Drop a .pptx file here or click</p>
+                            <p class="mt-1 text-sm text-indigo-200" id="pptx-filename">Drop a .pptx or .pdf file here or click</p>
                         </div>
                     </label>
-                    <input type="file" id="pptx-file" class="hidden" accept=".pptx">
+                    <input type="file" id="pptx-file" class="hidden" accept=".pptx,.pdf">
                 </div>
                 
                 <!-- JPG Upload -->
@@ -50,12 +50,19 @@
             <!-- Voice Selection -->
             <div class="mt-8">
                 <label for="voice-select" class="font-semibold text-indigo-100 mb-2 block text-lg">3. Select a Voice</label>
-                <div class="relative">
-                    <select id="voice-select" class="w-full bg-white/10 border border-indigo-400/50 rounded-lg py-3 px-4 appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-400 text-white placeholder-indigo-200">
-                        <option>Loading voices...</option>
-                    </select>
-                    <i class="fas fa-chevron-down text-indigo-300 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                <div class="flex gap-3">
+                    <div class="relative flex-1">
+                        <select id="voice-select" class="w-full bg-white/10 border border-indigo-400/50 rounded-lg py-3 px-4 appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-400 text-white placeholder-indigo-200">
+                            <option>Loading voices...</option>
+                        </select>
+                        <i class="fas fa-chevron-down text-indigo-300 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                    </div>
+                    <button id="preview-voice-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 rounded-lg transition-colors duration-200 flex items-center gap-2" disabled>
+                        <i class="fas fa-play"></i>
+                        <span class="hidden sm:inline">Preview</span>
+                    </button>
                 </div>
+                <p class="text-sm text-indigo-300 mt-2">Click preview to hear how the voice sounds</p>
             </div>
 
             <!-- Generate Button -->

@@ -1,86 +1,81 @@
-# AI Speaker Avatar System - Clean Version
+# Easy AI Speaker Avatar System
 
-A streamlined AI-powered system that creates animated speaker avatars for PowerPoint presentations with proper lip-sync.
+A complete system for creating AI-powered speaker avatars from PowerPoint presentations.
 
-## 🎯 What It Does
+## Quick Start
 
-- **Extracts text** from PowerPoint (.pptx) files
-- **Generates natural speech** using AI text-to-speech
-- **Creates animated avatars** with lip-sync using Wav2Lip
-- **Composes final videos** with PowerPoint slides as backgrounds
-- **Properly positions avatars** for clear lip-sync visibility
-
-## 🚀 Quick Start
-
-### For New Presentations:
-1. **Clean the system**: `python setup_new_presentation.py` or `clean_system.bat`
-2. **Add your files**:
-   - PowerPoint file (.pptx) → `ppt_input/`
-   - Face image (.png/.jpg) → `face_images/`
-3. **Run the system**: `python backend_final_fixed.py`
-
-### Or use the batch file:
+### Option 1: Automatic Setup (Recommended)
 ```bash
-run_backend.bat
+# Windows
+start.bat
+
+# Or manually
+python download.py  # Install dependencies once
+python run.py       # Run the system
 ```
 
-## 📁 Project Structure
+### Option 2: Manual Setup
+```bash
+# Install dependencies
+pip install python-pptx Pillow opencv-python pyttsx3 tqdm numpy flask flask-cors google-generativeai PyPDF2 pdf2image
 
-```
-├── backend_only_fixed.py     # Main system runner (ONE COMMAND)
-├── working_main.py           # Core AI processing engine
-├── final_video_composer.py   # Video composition with slide backgrounds
-├── slide_renderer.py         # PowerPoint slide rendering
-├── tts_fallback.py          # Text-to-speech system
-├── config.json              # Configuration settings
-├── requirements.txt         # Python dependencies
-├── ppt_input/               # Put your .pptx files here
-├── face_images/             # Put face images here (.png/.jpg)
-├── output/                  # Final videos appear here
-├── audio/                   # Generated audio files
-├── video/                   # Animated avatar videos
-├── slide_images/            # Rendered slide images
-└── Wav2Lip/                 # AI lip-sync model
+# Run the system
+python run.py
 ```
 
-## 📋 Requirements
+## Files
 
-- Python 3.12+
-- PowerPoint file (.pptx) in `ppt_input/`
-- Face image (.png/.jpg) in `face_images/`
+- `download.py` - Installs all required dependencies (run once)
+- `run.py` - Main application (runs after dependencies are installed)
+- `start.bat` - Windows batch file for easy startup
+- `frontend/` - Web interface files
 
-## 🎬 Output
+## Features
 
-- **Final Video**: `output/final_presentation_with_slides.mp4`
-- **Quality**: 1920x1080 Full HD
-- **Features**: AI avatar + PowerPoint slides + synchronized narration
+- ✅ **Progress Tracking**: Detailed terminal output with emojis and slide-by-slide status
+- ✅ **TTS Timeout Protection**: 30-second timeout prevents hanging
+- ✅ **FFmpeg Compatibility**: Handles odd image dimensions automatically
+- ✅ **Retry Logic**: Automatic retries for failed operations
+- ✅ **Fallback Video Creation**: Creates static videos when Wav2Lip is unavailable
+- ✅ **Resumable Processing**: Skips already completed slides
 
-## 🔧 Key Improvements
+## Usage
 
-- ✅ **Better Avatar Positioning**: Larger size (640x640) and better placement
-- ✅ **Improved Lip-Sync**: Enhanced face detection and padding
-- ✅ **Clean Codebase**: Removed all unnecessary files
-- ✅ **One Command**: Simple `python backend_only_fixed.py`
-- ✅ **Storage Optimized**: Minimal file footprint
-
-## 🎯 Usage
-
-1. **Add your files**:
-   - PowerPoint file → `ppt_input/`
-   - Face image → `face_images/`
-
-2. **Run the system**:
+1. **First Time Setup**:
    ```bash
-   python backend_only_fixed.py
+   python download.py
    ```
 
-3. **Get your video**: Check `output/final_presentation_with_slides.mp4`
+2. **Run the System**:
+   ```bash
+   python run.py
+   ```
 
-## 📊 System Status
+3. **Access Web Interface**: Open http://localhost:5000
 
-- ✅ AI Processing: SUCCESS
-- ✅ Slide Rendering: SUCCESS  
-- ✅ Video Composition: SUCCESS
-- ✅ Output Files: ALL GENERATED
+4. **Upload Files**: Upload your PowerPoint presentation and face image
 
-**Your AI Speaker Avatar System is ready! 🎉**
+5. **Monitor Progress**: Watch the terminal for detailed progress updates
+
+## Terminal Output
+
+The system now provides detailed progress tracking:
+
+```
+🎭 PROCESSING SLIDE 4/4 - Animating face...
+🔄 STATUS UPDATE: 68% - Animating face for slide 4/4
+✅ FACE ANIMATED FOR SLIDE 4/4 - Moving to next slide
+```
+
+## Troubleshooting
+
+- **Missing Dependencies**: Run `python download.py`
+- **FFmpeg Errors**: The system automatically handles image dimension issues
+- **TTS Hanging**: 30-second timeout prevents infinite hanging
+- **Video Generation**: Falls back to static videos if Wav2Lip is unavailable
+
+## System Requirements
+
+- Python 3.7+
+- FFmpeg (for video processing)
+- Windows/Linux/macOS
